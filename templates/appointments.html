@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+    <div class="h-[100vh] w-full">
+            <div class="flex items-center justify-between h-[9vh] bg-cyan-600 px-12 font-serif">
+                <h1 class="text-xl font-bold text-white">
+                    <i class="fa-solid fa-stethoscope text-3xl text-white "></i> HealthVault 
+                </h1>
+                <div class="flex items-center gap-8 text-white font-bold">
+                    <a href="/userhome"><i class="fa-solid fa-house text-xl text-white"></i>  Home</a>
+                    <a href="/appointment" class="text-red-500"><i class="fa-solid fa-user-nurse text-xl text-red-500"></i>  Appointments</a>
+                    <a href="/"><i class="fa-solid fa-right-from-bracket text-xl text-white "></i> Logout</a>
+                </div>
+            </div>
+        <div class="h-full w-full bg-white  relative flex flex-col gap-4">
+            <div class="h-[80vh] w-full relative flex items-center justify-center"> 
+                <img src="https://wallpapercave.com/wp/wp2655088.jpg" alt="" class="absolute left-0 top-0 w-full h-full object-cover">
+                <div class="absolute flex flex-col gap-9">
+                    <h1 class=" z-40 text-black text-4xl font-bold font-serif">Let's Make Your Life Healthier </h1>
+
+                    <h2 class="  z-40 text-black text-6xl font-bold font-serif">HEALTHY LIVING</h2>
+               </div>
+                <div class="w-full flex items-center justify-center gap-28 absolute -bottom-12 left-1/2 -translate-x-1/2 z-20">
+                    <div class="bg-white border-2  rounded-md p-6 w-80 h-32 shadow-2xl flex items-center justify-center gap-4">
+                        <div class=" min-h-20 min-w-20 rounded-full bg-blue-700 text-white items-center justify-center flex">
+                            <i class="fa-solid fa-comments text-3xl text-white"></i>
+                        </div>
+                        <h1 class=" text-2xl font-bold font-serif">Chat with a doctors</h1>
+
+                    </div>
+
+                    <div class="bg-white p-6 w-80 h-32  border-2  rounded-md shadow-2xl flex items-center justify-center gap-4 ">
+                        <div class=" min-h-20 min-w-20 rounded-full bg-green-500 text-white items-center justify-center flex"> 
+                            <i class="fa-solid fa-user-shield text-3xl text-white"></i>
+                        </div>
+                        <h1  class=" text-2xl font-bold font-serif">One Health-Protections</h1>
+
+                    </div>
+                    <div class="bg-white p-6  w-80 h-32 border-2  rounded-md shadow-2xl flex items-center justify-center gap-4">
+                        <div class=" min-h-20 min-w-20 rounded-full bg-pink-500 text-white items-center justify-center flex">
+                            <i class="fa-solid fa-syringe text-3xl text-white"></i>
+                        </div>
+                        <h1  class=" text-2xl font-bold font-serif">One Health-Pharmacy</h1>
+
+                    </div>
+                </div>
+              
+
+            </div>
+
+           
+            
+            
+        </div>
+
+
+        <div class="h-[100vh] w-full flex flex-col justify-center items-center gap-9">
+            <div class="h-[10vh] w-full flex items-center justify-center">
+                <h1 class="text-gray-500 text-6xl font-serif "><i class="fa-solid fa-calendar-check text-7xl text-gray-500 "></i> Doctor's Appointment's</h1>
+            </div>
+            <div id="appointmentsContainer" class="h-[80vh] w-4/5 bg-slate-50 rounded-xl overflow-y-scroll shadow-2xl shadow-black flex flex-col">
+                
+
+            </div>
+
+
+        </div>
+
+       
+         
+         <div class="h-[25vh] w-full ">
+            <div class="h-1/4 w-full"></div>
+            <div class=" h-3/4  w-full bg-cyan-600 flex items-center justify-center">
+                <h1 class="text-4xl font-serif font-bold text-white">Copyright @HealthVault 2024</h1>
+            </div>
+
+
+         </div>
+
+         
+            
+            
+            
+       
+        
+
+      
+
+    </div>
+
+    <script>
+        var appointments = {{ all_appointments  | safe }};
+        console.log(appointments)
+        console.log(typeof(appointments))
+        var container = document.getElementById("appointmentsContainer");
+
+        // Iterate over the appointments array
+        appointments.forEach(function(appointment) {
+            // Create a new appointment div element
+            var appointmentDiv = document.createElement("div");
+            appointmentDiv.classList.add("h-auto", "w-full", "bg-slate-300", "mt-3", "rounded-xl", "border-black", "border-2", "p-3", "text-2xl", "font-serif","relative");
+             
+            var status;
+            if (appointment[9] == 0) {
+                status = "Pending";
+            } else {
+                status = "Accepted";
+            }
+            // Construct the content of the appointment div
+            var content = "<strong>Name:</strong> " + appointment[1] + "<br>" +
+                          "<strong>Email:</strong> " + appointment[3] + "<br>" +
+                          "<strong>Date:</strong> " + appointment[4] + "<br>" +
+                          "<strong>type:</strong> " + appointment[5] + "<br>" +
+                          "<strong>status:</strong> " + status + "<br>" 
+
+                          if (status === "Accepted") {
+                            content += "<strong>Chamber:</strong> " + appointment[10] + "<br>";
+                        }              
+                          
+                        var deleteIcon = document.createElement("i");
+                        deleteIcon.classList.add("fas", "fa-trash-alt", "cursor-pointer", "text-red-500", "ml-2","absolute" ,"top-4","right-4");
+                        deleteIcon.setAttribute("aria-hidden", "true");
+                    
+                        // Add event listener to delete the appointment when delete icon is clicked
+                        deleteIcon.addEventListener("click", function() {
+                          handleDelete2(appointment)  // Remove the appointment div
+                            // You may add further logic here to handle deletion from your data structure
+                        }); 
+            // Set the content of the appointment div
+            appointmentDiv.innerHTML = content;
+            appointmentDiv.appendChild(deleteIcon);
+            // Append the appointment div to the container
+            container.appendChild(appointmentDiv);
+        });
+        function handleDelete2(appointment) {
+            // You can perform delete operation here
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", "/delete_user_request", true);
+            xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState === 4 && xhr.status === 200) {
+                    console.log("deleted successfully");
+                    // You can perform additional actions if needed
+                }
+            };
+            xhr.send("id=" + appointment[0]);
+          
+        }
+    
+    </script>
+</body>
+</html>

@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+    <div class="h-[100vh] w-full">
+            <div class="flex items-center justify-between h-[9vh] bg-cyan-600 px-12 font-serif">
+                <h1 class="text-xl font-bold text-white">
+                    <i class="fa-solid fa-user-tie text-3xl text-white "></i>  HealthVault
+                </h1>
+                <div class="flex items-center gap-8 font-bold text-white">
+                    <a href="/doctorhome" ><i class="fa-solid fa-house text-xl text-white"></i>  Home</a>
+                    <a href="/timetable" class="text-red-500" ><i class="fa-solid fa-calendar-days  text-xl text-red-500"></i> Schedule</a>
+                    <a href="/userrequest" ><i class="fa-solid fa-user-nurse text-xl text-white"></i> Requests</a>
+                    <a href="/"><i class="fa-solid fa-right-from-bracket text-xl text-white "></i> Logout</a>
+                </div>
+            </div>
+            <div class="h-[100vh] w-full flex flex-col justify-center items-center gap-9">
+                <div class="h-[20vh] w-full flex items-center justify-center">
+                    <h1 class="text-gray-500 text-4xl font-serif "><i class="fa-solid fa-calendar-days text-5xl text-gray-500 "></i> Your TimeTable</h1>
+                </div>
+                <div class="h-[80vh] w-4/5 bg-slate-50 rounded-xl  shadow-2xl shadow-black flex flex-col">
+                    
+                    <table class="w-full h-full text-center">
+                        <thead>
+                            <tr>
+                                <th class="border p-2">Time</th>
+                                <th class="border p-2">Monday</th>
+                                <th class="border p-2">Tuesday</th>
+                                <th class="border p-2">Wednesday</th>
+                                <th class="border p-2">Thursday</th>
+                                <th class="border p-2">Friday</th>
+                                <th class="border p-2">Saturday</th>
+                                <th class="border p-2">Sunday</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="border p-2">9:00 AM</td>
+                                <td class="border p-2">ward Round</td>
+                                <td class="border p-2">ward Round</td>
+                                <td class="border p-2">ward Round</td>
+                                <td class="border p-2">ward Round</td>
+                                <td class="border p-2">ward Round</td>
+                                <td class="border p-2">ward Round</td>
+                                <td class="border p-2">ward Round</td>
+                            </tr>
+                            <tr>
+                                <td class="border p-2">10:00 AM</td>
+                                <td class="border p-2">OPD</td>
+                                <td class="border p-2">OPD</td>
+                                <td class="border p-2">OPD</td>
+                                <td class="border p-2">OPD</td>
+                                <td class="border p-2">OPD</td>
+                                <td class="border p-2">OPD</td>
+                                <td class="border p-2">OPD</td>
+                            </tr>
+                            <tr>
+                                <td class="border p-2">11:00 AM</td>
+                                <td class="border p-2">Checkups</td>
+                                <td class="border p-2">Checkups</td>
+                                <td class="border p-2">Checkups</td>
+                                <td class="border p-2">Checkups</td>
+                                <td class="border p-2">Checkups</td>
+                                <td class="border p-2">Checkups</td>
+                                <td class="border p-2">Checkups</td>
+                            </tr>
+                            <tr>
+                                <td class="border p-2">12:00 PM</td>
+                                <td class="border p-2">Checkups</td>
+                                <td class="border p-2">Checkups</td>
+                                <td class="border p-2">Checkups</td>
+                                <td class="border p-2">Checkups</td>
+                                <td class="border p-2">Checkups</td>
+                                <td class="border p-2">Checkups</td>
+                                <td class="border p-2">Checkups</td>
+                            </tr>
+                            <tr>
+                                <td class="border p-2">1:00 PM</td>
+                                <td class="border p-2">Break</td>
+                                <td class="border p-2">Break</td>
+                                <td class="border p-2">Break</td>
+                                <td class="border p-2">Break</td>
+                                <td class="border p-2">Break</td>
+                                <td class="border p-2">Break</td>
+                                <td class="border p-2">Break</td>
+                            </tr>
+                            <tr>
+                                <td class="border p-2">2:00 PM</td>
+                                <td class="border p-2">surgery</td>
+                                <td class="border p-2">surgery</td>
+                                <td class="border p-2">surgery</td>
+                                <td class="border p-2">surgery</td>
+                                <td class="border p-2">surgery</td>
+                                <td class="border p-2">surgery</td>
+                                <td class="border p-2">surgery</td>
+                            </tr>
+                            <tr>
+                                <td class="border p-2">3:00 PM</td>
+                                <td class="border p-2">surgery</td>
+                                <td class="border p-2">surgery</td>
+                                <td class="border p-2">surgery</td>
+                                <td class="border p-2">surgery</td>
+                                <td class="border p-2">surgery</td>
+                                <td class="border p-2">surgery</td>
+                                <td class="border p-2">surgery</td>
+                            </tr>
+                            <tr>
+                                <td class="border p-2">4:00 PM</td>
+                                <td class="border p-2">checkups</td>
+                                <td class="border p-2">checkups</td>
+                                <td class="border p-2">checkups</td>
+                                <td class="border p-2">checkups</td>
+                                <td class="border p-2">checkups</td>
+                                <td class="border p-2">checkups</td>
+                                <td class="border p-2">checkups</td>
+                            </tr>
+                            <tr>
+                                <td class="border p-2">5:00 PM</td>
+                                <td class="border p-2">ward Round</td>
+                                <td class="border p-2">ward Round</td>
+                                <td class="border p-2">ward Round</td>
+                                <td class="border p-2">ward Round</td>
+                                <td class="border p-2">ward Round</td>
+                                <td class="border p-2">ward Round</td>
+                                <td class="border p-2">ward Round</td>
+                            </tr>
+                        </tbody>
+               </table>
+            
+
+
+
+                
+
+              
+    
+    
+            </div>
+
+       
+         
+         <div class="h-[25vh] w-full ">
+            <div class="h-1/4 w-full"></div>
+            <div class=" h-3/4  w-full bg-cyan-600 flex items-center justify-center">
+                <h1 class="text-4xl font-serif font-bold text-white">Copyright @HealthVault 2024</h1>
+            </div>
+
+
+         </div>
+
+         
+            
+            
+            
+       
+        
+
+      
+
+    </div>
+</body>
+</html>

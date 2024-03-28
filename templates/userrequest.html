@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+    <div class="h-[100vh] w-full">
+            <div class="flex items-center justify-between h-[9vh] bg-cyan-600 px-12 font-serif">
+                <h1 class="text-xl font-bold text-white">
+                    <i class="fa-solid fa-user-tie text-3xl text-white "></i> Healthvault
+                </h1>
+                <div class="flex items-center gap-8 font-bold text-white">
+                    <a href="/doctorhome" ><i class="fa-solid fa-house text-xl text-white"></i>  Home</a>
+                    <a href="/timetable"  ><i class="fa-solid fa-calendar-days  text-xl "></i> Schedule</a>
+                    <a href="/userrequest" class="text-red-500" ><i class="fa-solid fa-user-nurse text-xl text-red-500"></i> Requests</a>
+                    <a href="/"><i class="fa-solid fa-right-from-bracket text-xl text-white "></i> Logout</a>
+                </div>
+            </div>
+            <div class="h-[100vh] w-full flex flex-col justify-center items-center gap-9">
+                <div class="h-[20vh] w-full flex items-center justify-center">
+                    <h1 class="text-gray-500 text-4xl font-serif "><i class="fa-solid fa-stethoscope text-5xl text-gray-500 "></i> User's Appointment Requests</h1>
+                </div>
+                <div id="appointmentsContainer" class="h-[80vh] w-4/5 bg-slate-50 rounded-xl overflow-y-scroll shadow-2xl shadow-black flex flex-col">
+                  
+                </div>
+
+              
+    
+    
+            </div>
+
+       
+         
+         <div class="h-[25vh] w-full ">
+            <div class="h-1/4 w-full"></div>
+            <div class=" h-3/4  w-full bg-cyan-600 flex items-center justify-center">
+                <h1 class="text-4xl font-serif font-bold text-white">Copyright @HealthVault 2024</h1>
+            </div>
+
+
+         </div>
+
+         
+            
+            
+            
+       
+        
+
+      
+
+    </div>
+
+    <script>
+        var appointments = {{ appointments  | safe }};
+        console.log(appointments)
+        console.log(typeof(appointments))
+        var container = document.getElementById("appointmentsContainer");
+
+        // Iterate over the appointments array
+        appointments.forEach(function(appointment) {
+            // Create a new appointment div element
+            var appointmentDiv = document.createElement("div");
+            appointmentDiv.classList.add("h-auto", "w-full", "bg-slate-300", "mt-3", "rounded-xl", "border-black", "border-2", "p-3", "text-2xl", "font-serif");
+             
+          
+            // Construct the content of the appointment div
+            var content = "<strong>Name:</strong> " + appointment[1] + "<br>" +
+                          "<strong>Email:</strong> " + appointment[3] + "<br>" +
+                          "<strong>Date:</strong> " + appointment[4] + "<br>" +
+                          "<strong>type:</strong> " + appointment[5] + "<br>" +
+                          "<strong>Age:</strong> " + appointment[7] + "<br>" +
+                          "<strong>reason:</strong> " +appointment[8] + "<br>" 
+
+                                     
+                          
+
+            // Set the content of the appointment div
+            appointmentDiv.innerHTML = content;
+            
+            // Append the appointment div to the container
+            container.appendChild(appointmentDiv);
+        });
+
+    
+    </script>
+</body>
+</html>
